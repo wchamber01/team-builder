@@ -5,18 +5,11 @@ const Form = props => {
 
     return (
         <form>
-            <label htmlFor="fname">First Name</label>
+            <label htmlFor="name">Name</label>
             <input
-                id="fname"
+                id="name"
                 type="text"
-                name="fname"
-            //   value={}
-            />
-            <label htmlFor="lname">Last Name</label>
-            <input
-                id="lname"
-                type="text"
-                name="lname"
+                name="name"
             //   value={}
             />
             <label htmlFor="email">Email</label>
@@ -24,6 +17,13 @@ const Form = props => {
                 id="email"
                 type="text"
                 name="email"
+            //   value={}
+            />
+            <label htmlFor="position"></label>
+            <input
+                id="position"
+                type="text"
+                name="position"
             //   value={}
             />
         </form>
