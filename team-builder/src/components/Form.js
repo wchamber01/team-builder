@@ -29,7 +29,7 @@ const Form = props => {
         id="email"
         name="email"
         type="email"
-        value={name}
+        value={email}
         required
         onChange={(event) => setEmail(event.target.value)}
       />
