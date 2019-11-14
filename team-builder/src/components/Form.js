@@ -1,31 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Form = props => {
-    const [card, setCard] = useState({ name: "", })
+  const [name, setName] = useState({ "" })
+  const [email, setEmail] = useState({ "" })
+  const [role, setRole] = useState({ ""})
 
-    return (
-        <form>
-            <label htmlFor="name">Name</label>
-            <input
-                id="name"
-                type="text"
-                name="name"
-            //   value={}
-            />
-            <label htmlFor="email">Email</label>
-            <input
-                id="email"
-                type="text"
-                name="email"
-            //   value={}
-            />
-            <label htmlFor="position"></label>
-            <input
-                id="position"
-                type="text"
-                name="position"
-            //   value={}
-            />
-        </form>
-    );
+  const clearForm() => {
+    setName("");
+    setEmail("");
+    setRole("");
+  }
+
+  return (
+    <form onSubmit = {(event) => {
+      props.addNewMember(event, name, email, role)
+      clearForm()}}>
+      < label htmlFor = "name" > Name</label >
+      <input
+        id="name"
+        name="name"
+        type="text"
+        value={name}
+        required
+        onChange={(event) => setName(event.target.value)}
+      />
+      <label htmlFor="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        value={name}
+        required
+        onChange={(event) => setEmail(event.target.value)}
+      />
+      <label htmlFor="role"></label>
+      <input
+        id="role"
+        name="position"
+        type="text"
+        value={role}
+        required
+        onChange={(event) => setRole(event.target.value)}
+      />
+      <button type="submit">Submit</button>
+    </form >
+  );
 }
+
+export default Form;

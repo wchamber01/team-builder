@@ -1,22 +1,30 @@
 import React, {useState} from 'react';
+import Form from './components/Form';
+import TeamList from './components/TeamList';
+
 import './App.css';
 
-
 function App() {
-  const [teamMember, setTeamMember] = useState()
+  const [members, setMembers] = useState([])
 
-  const addNewTeamMember = person => {
-    const newTeamMember = {
+  const addNewMember = (event, name, email, role) => {
+    event.preventDefault();
+    
+    const member = {
       id: Date.now(),
-      name: person.name,
-      jobTitle: person.jobTitle,
-      email: person.email
-    };
+      name,
+      email,
+      role,
+    }
+    
+    setMembers([...members, member]);
   };
+
   return (
     <div className="Team">
       <h1>My Team</h1>
-      
+      <Form addNewMember = {addNewMember} />
+      <TeamList members = {members} />
     </div>
   )
 }
